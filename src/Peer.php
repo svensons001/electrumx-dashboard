@@ -14,6 +14,7 @@ class Peer{
 	public $country; // string
 	public $countryCode; // string
 	public $isp; // string
+	public $city; // string
 	
 	function __construct($peer) {
 		$this->host = htmlspecialchars($peer['host']); 
