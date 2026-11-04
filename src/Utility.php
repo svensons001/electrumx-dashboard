@@ -262,7 +262,7 @@ function getSessionsData(bool $geo = CONFIG::SESSIONS_GEO) {
   
   if($geo){
     $geoData = getSessionsGeoData($sessionsRPC);
-    $sessionsData = $geoData;
+    $sessionsData = ['sessions' => []] + $geoData;
   }else{
     $sessionsData['totaltraffic'] = 0;
     $sessionsData['totaltrafficin'] = 0;
