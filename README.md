@@ -1,5 +1,10 @@
 # ElectrumX Dashboard
 
+This repository is a private fork maintained by Sven based on the original
+[Mirobit/electrumx-dashboard](https://github.com/Mirobit/electrumx-dashboard).
+The maintained private mirror is
+[svensons001/electrumx-dashboard](https://github.com/svensons001/electrumx-dashboard).
+
 ![](https://user-images.githubusercontent.com/13236924/100623563-9d8b7880-3322-11eb-9da2-5083d28cefbd.png)
 
 ElectrumX Dashboard (EXD) is a lightweight dashboard for [ElectrumX](https://github.com/spesmilo/electrumx) servers.
@@ -13,12 +18,14 @@ Check out [Bitcoin Node Manager](https://github.com/Mirobit/bitcoin-node-manager
 - Create rules to manage sessions
   - Disconnect or log sessions that violate rules
   - Set global events that trigger the execution of rules, run rules manually or set up a cron job
+- Optional persistent dark mode for the dashboard UI
+- PHP 8.2 compatibility fixes and safer handling of empty ElectrumX responses
 
 ## Requirements
 
 - ElectrumX 1.11.0+
 - Web Server (Apache, Nginx, PHP Server)
-- PHP 7.0.0+
+- PHP 8.2+
   - curl extension
 - Docker (Alternative to Web Server and PHP)
 
@@ -37,7 +44,7 @@ Check out [Bitcoin Node Manager](https://github.com/Mirobit/bitcoin-node-manager
 The EXD folder is mounted as volume in Docker. This way you can edit `src/Config.php` and update BNM (`git pull`) at any time without connecting to the container.
 
 3. Change the RPC IP in `src/Config.php` to the docker network interface IP.
-4. Run either `docker-compose up -d` or `docker run -d -p 8001:80 --name exd -v ${PWD}:/var/www/html php:7.4-apache` in the BNM folder.
+4. Run either `docker-compose up -d` or `docker run -d -p 8001:80 --name exd -v ${PWD}:/var/www/html php:8.2-apache` in the dashboard folder.
 5. Add the following to your `elextrumx.conf` under SERVICES:
 
 ```
@@ -51,6 +58,13 @@ rpc://172.17.0.1:ELECXTRUMX-RPC-PORT
 - All pages and control functionality are only accessible for logged in users. The only exception is if you use the `Rules` cron job functionality. But a password based token is required and the functionality is only able to apply rules.
 - Access to EXD is by default limited to localhost. This can be expanded to a specific IP or disabled. If disabled, make sure to protect the EXD folder (.htaccess or rename it to something unique that an attacker will not guess). An attacker could "guess" your password, since there is no build-in brute force protection.
 - The `data` folder contains your rules, logs and geo information about your peers. Make sure to protect (e.g. `chmod -R 770 data`) this sensitive information if your web server is publicly accessible. The previously mentioned IP protection doesn't work here. If you use `Apache` you are fine, since the folder is protected with `.htaccess` (make sure `AllowOverride All` is set in your Apache config file).
+
+## Fork and runtime notes
+
+- Upstream: [Mirobit/electrumx-dashboard](https://github.com/Mirobit/electrumx-dashboard)
+- Maintained private fork: [svensons001/electrumx-dashboard](https://github.com/svensons001/electrumx-dashboard)
+- The maintained deployment is tested with PHP 8.2 and Apache.
+- Do not commit `src/Config.php`, production `.env` files, passwords, tokens or private keys.
 
 ## Roadmap
 
