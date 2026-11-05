@@ -22,11 +22,11 @@ function createSessionsContent(){
   $content['details'] = getMostPop($sessionsData['sessions']);
   $content['sessions'] = $sessionsData['sessions'];
   $content['sessionsc'] = count($sessionsData['sessions']);
-	$content['details']['sslp'] = round($content['details']['sslc']/$content['sessionsc'],2)*100;
+	$content['details']['sslp'] = $content['sessionsc'] ? round($content['details']['sslc']/$content['sessionsc'],2)*100 : 0;
 	$content['totaltraffic'] = $sessionsData['totaltraffic'];
 	$content['totaltrafficin'] = $sessionsData['totaltrafficin'];
 	$content['totaltrafficout'] = $sessionsData['totaltrafficout'];
-	$content['totaltrafficinper'] = round($sessionsData['totaltrafficin']/$sessionsData['totaltraffic'],2)*100;
+	$content['totaltrafficinper'] = $sessionsData['totaltraffic'] ? round($sessionsData['totaltrafficin']/$sessionsData['totaltraffic'],2)*100 : 0;
   $content['geo'] = Config::SESSIONS_GEO;
   if(isset($sessionsData['api'])) $content['api'] = $sessionsData['api'];
 
@@ -35,12 +35,13 @@ function createSessionsContent(){
 
 function createPeersContent(){
     $peersData = getPeersData();
-    $content['details'] = getMostPop($peersData['peers'], false);
-    $content['peers'] = $peersData['peers'];
-    $content['peersc'] = count($peersData['peers']);
-    $content['details']['sslp'] = round($content['details']['sslc']/$content['peersc'],2)*100;
-    $content['details']['tcpp'] = round($content['details']['tcpc']/$content['peersc'],2)*100;
-    $content['details']['torp'] = round($content['details']['torc']/$content['peersc'],2)*100;
+    $content['peers'] = $peersData['peers'] ?? [];
+    $content['details'] = getMostPop($content['peers'], false);
+    $content['peersc'] = count($content['peers']);
+    $peerCount = $content['peersc'];
+    $content['details']['sslp'] = $peerCount ? round($content['details']['sslc']/$peerCount,2)*100 : 0;
+    $content['details']['tcpp'] = $peerCount ? round($content['details']['tcpc']/$peerCount,2)*100 : 0;
+    $content['details']['torp'] = $peerCount ? round($content['details']['torc']/$peerCount,2)*100 : 0;
     $content['geo'] = Config::PEERS_GEO;
     if(isset($peersData['api'])) $content['api'] = $peersData['api'];
 

@@ -246,7 +246,7 @@ function getMostPop(array $connections, bool $sessionsB = true){
         
         // Select most popular isp
         arsort($ispCountAr);
-        $result['mpIsp'] = substr(key($ispCountAr),0,8);
+        $result['mpIsp'] = substr((string) (key($ispCountAr) ?? ''),0,8);
         $result['mpIspC'] = reset($ispCountAr);
     }
     

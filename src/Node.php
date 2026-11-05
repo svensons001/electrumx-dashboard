@@ -15,6 +15,8 @@ class Node {
     public $errorsC;
     public $peers;
 	public $uptime;
+	public $requestsC;
+	public $subscriberC;
 	
 	function __construct() {
 		global $exd;
