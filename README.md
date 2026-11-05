@@ -32,7 +32,7 @@ Check out [Bitcoin Node Manager](https://github.com/Mirobit/bitcoin-node-manager
 ## Installation
 
 1. Clone this repository or [download](https://github.com/mirobit/electrumx-dashboard/release) it.
-2. Copy `src/Config.sample.php` and remove `.sample`. Open `src/Config.php` and enter your ElectrumX RPC IP. The local development/test default password is `electrumx`; **change `Config::PASSWORD` in `src/Config.php` before every production or public deployment**.
+2. Copy `src/Config.sample.php` and remove `.sample`. Open `src/Config.php` and enter your ElectrumX RPC IP. **The local development/test password is explicitly `electrumx`; change `Config::PASSWORD` in `src/Config.php` before every production or public deployment.**
 
 ### Manual setup
 
