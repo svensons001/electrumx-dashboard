@@ -35,6 +35,7 @@ if(isset($_GET['job']) AND $_GET['job'] === substr(hash('sha256', Config::PASSWO
 }
 
 // Start check user session
+ini_set('session.cookie_httponly', '1');
 session_start();
 $passToken = hash('sha256', Config::PASSWORD."5be81tz6");
 
@@ -50,8 +51,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] === TRUE){
 	// Nothing needs to be done
 // Login		
 }elseif(!isset($_SESSION['login']) AND isset($_POST['password']) AND $_POST['password'] === Config::PASSWORD){
-	ini_set('session.cookie_httponly', '1');
-	$passHashed = hash('sha256', Config::PASSWORD);
+		$passHashed = hash('sha256', Config::PASSWORD);
 		$_SESSION['login'] = TRUE;
 		$_SESSION["csfrToken"] = hash('sha256', random_bytes(20));
 		if(isset($_POST['stayloggedin'])){		
