@@ -1,0 +1,132 @@
+html.dark-mode {
+  background: #121820;
+}
+
+html.dark-mode body,
+html.dark-mode .right_col,
+html.dark-mode .container.body {
+  background: #121820;
+  color: #d8e0e8;
+}
+
+html.dark-mode .right_col {
+  border-left-color: #273545;
+}
+
+html.dark-mode .x_panel,
+html.dark-mode .x_title,
+html.dark-mode .table,
+html.dark-mode .table > tbody > tr > td,
+html.dark-mode .table > tbody > tr > th,
+html.dark-mode .table > tfoot > tr > td,
+html.dark-mode .table > tfoot > tr > th,
+html.dark-mode .table > thead > tr > td,
+html.dark-mode .table > thead > tr > th {
+  background-color: #1b2633;
+  border-color: #344454;
+  color: #d8e0e8;
+}
+
+html.dark-mode .x_title,
+html.dark-mode .x_title h2,
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6,
+html.dark-mode label,
+html.dark-mode .control-label {
+  color: #e8eef4;
+}
+
+html.dark-mode a,
+html.dark-mode .x_title span,
+html.dark-mode small {
+  color: #6fc7ff;
+}
+
+html.dark-mode .form-control,
+html.dark-mode select,
+html.dark-mode textarea,
+html.dark-mode input {
+  background-color: #16212c;
+  border-color: #46596b;
+  color: #e8eef4;
+}
+
+html.dark-mode .form-control:focus,
+html.dark-mode select:focus,
+html.dark-mode textarea:focus,
+html.dark-mode input:focus {
+  border-color: #1abb9c;
+  box-shadow: 0 0 4px rgba(27, 187, 156, .45);
+}
+
+html.dark-mode .table-striped > tbody > tr:nth-of-type(odd),
+html.dark-mode .table-hover > tbody > tr:hover {
+  background-color: #223241;
+}
+
+html.dark-mode .dataTables_wrapper .dataTables_info,
+html.dark-mode .dataTables_wrapper .dataTables_length,
+html.dark-mode .dataTables_wrapper .dataTables_filter,
+html.dark-mode .dataTables_wrapper .dataTables_paginate {
+  color: #c5d1dc;
+}
+
+html.dark-mode .theme-toggle {
+  background: #26384a;
+  border-color: #526b80;
+  color: #f4c95d;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  z-index: 10000;
+  border: 1px solid #c5cbd0;
+  border-radius: 4px;
+  background: #fff;
+  color: #34495e;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  background: #1abb9c;
+  border-color: #1abb9c;
+  color: #fff;
+  outline: none;
+}
+
+.fork-notice {
+  border-left: 3px solid #1abb9c;
+  margin-bottom: 24px;
+  padding: 8px 12px;
+}
+
+.github-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.github-links a {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.github-links .github-hover {
+  color: #34495e;
+}
+
+html.dark-mode .github-links .github-hover {
+  color: #e8eef4;
+}
