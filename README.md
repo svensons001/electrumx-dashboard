@@ -32,7 +32,7 @@ Check out [Bitcoin Node Manager](https://github.com/Mirobit/bitcoin-node-manager
 ## Installation
 
 1. Clone this repository or [download](https://github.com/mirobit/electrumx-dashboard/release) it.
-2. Copy `src/Config.sample.php` and remove `.sample`. Open `src/Config.php` and enter your ElectrumX RPC IP and set the EXD password.
+2. Copy `src/Config.sample.php` and remove `.sample`. Open `src/Config.php` and enter your ElectrumX RPC IP. The local development/test default password is `electrumx`; **change `Config::PASSWORD` in `src/Config.php` before every production or public deployment**.
 
 ### Manual setup
 
@@ -41,17 +41,24 @@ Check out [Bitcoin Node Manager](https://github.com/Mirobit/bitcoin-node-manager
 
 ### Docker
 
-The EXD folder is mounted as volume in Docker. This way you can edit `src/Config.php` and update BNM (`git pull`) at any time without connecting to the container.
+The EXD folder is mounted as volume in Docker. This way you can edit `src/Config.php` and update the dashboard at any time without connecting to the container. The example binds only to `127.0.0.1` and uses PHP 8.2.
 
 3. Change the RPC IP in `src/Config.php` to the docker network interface IP.
-4. Run either `docker-compose up -d` or `docker run -d -p 8001:80 --name exd -v ${PWD}:/var/www/html php:8.2-apache` in the dashboard folder.
+4. Run either `docker-compose up -d` or `docker run -d -p 127.0.0.1:8001:80 --name exd -v ${PWD}:/var/www/html php:8.2-apache` in the dashboard folder.
 5. Add the following to your `elextrumx.conf` under SERVICES:
 
 ```
 rpc://172.17.0.1:ELECXTRUMX-RPC-PORT
 ```
 
-6. EXD should now be accessible under http://server-ip:8001.
+6. EXD should now be accessible locally under http://127.0.0.1:8001. For trusted-LAN access, bind the port explicitly to the LAN address and set an appropriate `ACCESS_IP` in `src/Config.php`; do not expose it on all interfaces by default.
+
+### Local test default
+
+The isolated local Docker test uses the password `electrumx` so the dashboard
+can be checked reproducibly. This is intentionally not a secure production
+password. Set a unique strong value in `Config::PASSWORD` in `src/Config.php`
+before exposing the dashboard beyond a trusted local network.
 
 ## Security
 
