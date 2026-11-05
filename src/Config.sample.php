@@ -6,7 +6,9 @@
       // ElectrumX Dashboard (EXD) password for login. You should additionally change the name of
       // EXD folder to something unique, if accessible via the web.
       // Leave empty to disable it (only do this on a local setup that can't be reached from the outside).
-      const PASSWORD = "MY-PASSWORD";
+      // Development/test default used by the local Docker test setup. Replace
+      // this before any production or public deployment.
+      const PASSWORD = "electrumx";
       
       /* 
       IP that can access EXD:
@@ -14,7 +16,7 @@
         "localhost": only localhost (IPv4/v6) can access EXD)
         "84.12.32.297": localhost and the specific IP (e.g. 84.12.32.297) can access EXD
       */
-      const ACCESS_IP = "";
+      const ACCESS_IP = "localhost";
 
       /*
       IP of the ElextrumX RPC Server, usually localhost.
