@@ -3,17 +3,22 @@ html.dark-mode {
 }
 
 html.dark-mode body,
-html.dark-mode .right_col,
 html.dark-mode .container.body {
   background: #121820;
   color: #d8e0e8;
 }
 
-html.dark-mode .right_col {
+html.dark-mode body .container.body .right_col {
+  background: #121820;
+  color: #d8e0e8;
   border-left-color: #273545;
 }
 
 html.dark-mode .x_panel,
+html.dark-mode .panel,
+html.dark-mode .panel-heading,
+html.dark-mode .panel-body,
+html.dark-mode .panel-footer,
 html.dark-mode .x_title,
 html.dark-mode .table,
 html.dark-mode .table > tbody > tr > td,
@@ -25,6 +30,15 @@ html.dark-mode .table > thead > tr > th {
   background-color: #1b2633;
   border-color: #344454;
   color: #d8e0e8;
+}
+
+html.dark-mode .table > tbody > tr > td,
+html.dark-mode .table > tbody > tr > th,
+html.dark-mode .table > tfoot > tr > td,
+html.dark-mode .table > tfoot > tr > th,
+html.dark-mode .table > thead > tr > td,
+html.dark-mode .table > thead > tr > th {
+  background-color: transparent;
 }
 
 html.dark-mode .x_title,
@@ -40,7 +54,10 @@ html.dark-mode .control-label {
   color: #e8eef4;
 }
 
-html.dark-mode a,
+html.dark-mode .x_panel a,
+html.dark-mode .panel a,
+html.dark-mode .table a,
+html.dark-mode .github-links a,
 html.dark-mode .x_title span,
 html.dark-mode small {
   color: #6fc7ff;
@@ -66,6 +83,13 @@ html.dark-mode input:focus {
 html.dark-mode .table-striped > tbody > tr:nth-of-type(odd),
 html.dark-mode .table-hover > tbody > tr:hover {
   background-color: #223241;
+}
+
+html.dark-mode .table-striped > tbody > tr:nth-of-type(odd) > td,
+html.dark-mode .table-striped > tbody > tr:nth-of-type(odd) > th,
+html.dark-mode .table-hover > tbody > tr:hover > td,
+html.dark-mode .table-hover > tbody > tr:hover > th {
+  background-color: inherit;
 }
 
 html.dark-mode .dataTables_wrapper .dataTables_info,
@@ -100,7 +124,11 @@ html.dark-mode .theme-toggle {
   background: #1abb9c;
   border-color: #1abb9c;
   color: #fff;
-  outline: none;
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid #f4c95d;
+  outline-offset: 2px;
 }
 
 .fork-notice {
