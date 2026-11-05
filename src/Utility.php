@@ -257,12 +257,12 @@ function getMostPop(array $connections, bool $sessionsB = true){
 
 function getSessionsData(bool $geo = CONFIG::SESSIONS_GEO) {
 	global $exd;
-  $sessionsData = [];
+  $sessionsData = ['sessions' => []];
   $sessionsRPC = $exd->send('sessions');
   
   if($geo){
     $geoData = getSessionsGeoData($sessionsRPC);
-    $sessionsData = $geoData;
+    $sessionsData = $geoData + ['sessions' => []];
   }else{
     $sessionsData['totaltraffic'] = 0;
     $sessionsData['totaltrafficin'] = 0;
