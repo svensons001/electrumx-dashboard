@@ -1,8 +1,8 @@
 # ElectrumX Dashboard
 
-This repository is a private fork maintained by Sven based on the original
+This repository is a public fork maintained by Sven based on the original
 [Mirobit/electrumx-dashboard](https://github.com/Mirobit/electrumx-dashboard).
-The maintained private mirror is
+The maintained fork is
 [svensons001/electrumx-dashboard](https://github.com/svensons001/electrumx-dashboard).
 
 ![](https://user-images.githubusercontent.com/13236924/100623563-9d8b7880-3322-11eb-9da2-5083d28cefbd.png)
@@ -69,7 +69,7 @@ before exposing the dashboard beyond a trusted local network.
 ## Fork and runtime notes
 
 - Upstream: [Mirobit/electrumx-dashboard](https://github.com/Mirobit/electrumx-dashboard)
-- Maintained private fork: [svensons001/electrumx-dashboard](https://github.com/svensons001/electrumx-dashboard)
+- Maintained public fork: [svensons001/electrumx-dashboard](https://github.com/svensons001/electrumx-dashboard)
 - The maintained deployment is tested with PHP 8.2 and Apache.
 - Do not commit `src/Config.php`, production `.env` files, passwords, tokens or private keys.
 
