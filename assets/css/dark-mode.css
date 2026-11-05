@@ -54,13 +54,42 @@ html.dark-mode .control-label {
   color: #e8eef4;
 }
 
-html.dark-mode .x_panel a,
-html.dark-mode .panel a,
-html.dark-mode .table a,
+html.dark-mode .x_panel a:not(.btn):not(.dropdown-toggle),
+html.dark-mode .panel a:not(.btn):not(.dropdown-toggle),
+html.dark-mode .table a:not(.btn):not(.dropdown-toggle),
 html.dark-mode .github-links a,
 html.dark-mode .x_title span,
 html.dark-mode small {
   color: #6fc7ff;
+}
+
+html.dark-mode .btn-default {
+  background-color: #26384a;
+  border-color: #526b80;
+  color: #e8eef4;
+}
+
+html.dark-mode .btn-default:hover,
+html.dark-mode .btn-default:focus,
+html.dark-mode .btn-default:active {
+  background-color: #355069;
+  border-color: #6f8da5;
+  color: #fff;
+}
+
+html.dark-mode .dropdown-menu {
+  background-color: #1b2633;
+  border-color: #344454;
+}
+
+html.dark-mode .dropdown-menu > li > a {
+  color: #e8eef4;
+}
+
+html.dark-mode .dropdown-menu > li > a:hover,
+html.dark-mode .dropdown-menu > li > a:focus {
+  background-color: #2e4357;
+  color: #fff;
 }
 
 html.dark-mode .form-control,

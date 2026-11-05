@@ -20,7 +20,7 @@
 
     button.setAttribute('aria-pressed', dark ? 'true' : 'false');
     icon.className = dark ? 'fa fa-sun-o' : 'fa fa-moon-o';
-    label.textContent = dark ? 'Light mode' : 'Dark mode';
+    label.textContent = 'Dark mode';
   }
 
   try {
